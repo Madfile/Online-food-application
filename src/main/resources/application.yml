@@ -1,0 +1,18 @@
+#logging:
+  #pattern:
+    #console: "%d - %msg%n" ##输出格式，日期，内容
+  ##path: /Users/GrayLeo/log/tomcat/
+  #file: /Users/GrayLeo/log/tomcat/sell.log #用于指定文件名，否则用上面一条，默认输出spring.log
+  #level: debug #把默认级别从info改成debug，这样从debug开始就会在console里面显示
+         #com.imooc.LoggerTest: debug 也可以具体到某个类
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: xinyang1019
+    url: jdbc:mysql://127.0.0.1/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+#server:
+  #context-path: /sell

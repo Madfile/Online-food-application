@@ -1,0 +1,13 @@
+package com.imooc.sell.repository;
+
+import com.imooc.sell.dataObject.ProductInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ProductInfoRepository extends JpaRepository<ProductInfo,String> {
+
+    //通过状态查商品
+    List<ProductInfo> findByProductStatus(Integer productStatus);
+
+}
