@@ -61,4 +61,6 @@ public class ProductServiceImplTest {
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotEquals(null,result);
     }
+
+
 }

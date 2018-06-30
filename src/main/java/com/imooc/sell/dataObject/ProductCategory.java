@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 /* 类目表 */
 @Entity
-@DynamicUpdate//dynamicUpdate会自动将Dtate类型的变量进行更新（数据库自动更新比赋值的属性拥有更高的权限）
+@DynamicUpdate//dynamicUpdate会自动将Date类型的变量进行更新（数据库自动更新比赋值的属性拥有更高的权限）
 @Data//lombok插件提供的免除写getter，setter和toString的注释
 public class ProductCategory {
     /* 类目id */
