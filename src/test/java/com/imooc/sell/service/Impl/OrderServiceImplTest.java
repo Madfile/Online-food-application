@@ -60,7 +60,7 @@ public class OrderServiceImplTest {
         OrderDTO result = orderService.findOne(ORDER_ID);
         log.info("【查询单个订单】 result = {}", result);
         Assert.assertEquals(ORDER_ID,result.getOrderId());
-    }
+    }  
 
     @Test
     public void findList() {
