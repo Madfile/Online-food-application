@@ -2,6 +2,7 @@ package com.imooc.sell.dataObject;
 
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Entity
 @Data
+@DynamicUpdate //让updateTime自动更新
 public class OrderDetail {
 
     @Id

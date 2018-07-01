@@ -12,10 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -45,11 +43,21 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void increaseStock(List<CartDTO> cartDTOList) {
+        for(CartDTO cartDTO: cartDTOList){
+            Optional<ProductInfo> productInfo = repository.findById(cartDTO.getProductId());
+            if(productInfo == null){
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.get().getProductStock() +cartDTO.getProductQuantity();
+            productInfo.get().setProductStock(result);
+
+            repository.save(productInfo.get());
+        }
 
     }
 
     @Override
-    @Transactional//(这种减法的一定要加事务回滚)
+    @org.springframework.transaction.annotation.Transactional//(这种减法的一定要加事务回滚)
     public void decreaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO: cartDTOList){
             Optional<ProductInfo> productInfo = repository.findById(cartDTO.getProductId());
